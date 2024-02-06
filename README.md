@@ -18,3 +18,32 @@ Initialize modal with implicit open and with or without options in one call, for
        </div>
 ```  
 Use the element's ID as selector, using classes could have unpredictable results, especially if more than one element per class exists. Also, I had to wrap the contents in some sort of tag in order for them to be shifted into the "modalBody" class correctly.  
+
+These options are set as default -- to change any of them, pass in an options object:  
+```
+customOptions= {
+  autoOpen: true,  
+  destroyOnHide: false,
+  title: '\xa0',
+  customClasses: {
+  	modalHead: null,
+  	modalBody: null,
+  	close: null,
+  	modalContainer: null,
+  	modalContent: null,
+    },
+  closeIcon: 'icon-cancel',
+  onInit: null,
+  beforeShow: null,
+  onShow: null,
+  beforeClose: null,
+  onClose: null,
+  onDestroy: null,
+  height: `${window.visualViewport.height/2}px`,
+  width: `${window.visualViewport.width/2}px`,
+  showMaximize: true,
+  });
+
+$('#open-modal').modal(options=customOptions)
+```  
+I used fontello to provide icons for `icon-cancel`, `icon-window-maximize`, and `icon-window-restore`. They're not included here, but you can replace the classes with whichever works best for you, including ❌➖⬆️, whatever.
